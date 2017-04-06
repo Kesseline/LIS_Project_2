@@ -1,8 +1,7 @@
 
 load('data/train.mat');
 
-classif = @svm;
-fun = @(XTRAIN,ytrain,XTEST)(onevone(XTRAIN,ytrain,XTEST,classif));
+fun = @(XTRAIN,ytrain,XTEST)(onevone(XTRAIN,ytrain,XTEST,@svm));
 
 mcr = crossval('mcr',X,y,'Predfun',fun);
 
