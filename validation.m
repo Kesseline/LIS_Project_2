@@ -1,4 +1,7 @@
 
+addpath('classifiers/');
+addpath('multiclass_models/');
+
 load('data/train.mat');
 
 fun = @(XTRAIN,ytrain,XTEST)(onevone(XTRAIN,ytrain,XTEST,@classifier));
