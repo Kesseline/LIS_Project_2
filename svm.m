@@ -1,7 +1,9 @@
-function w = svm( XTRAIN, ytrain, lambda )
+function yfit = svm( XTRAIN, ytrain, XTEST, lambda )
 %SVM Support vector machine
 
 w = sgd(XTRAIN, ytrain, @svmgrad);
+
+yfit = XTEST * w;
 
     function v = svmgrad(w, x, y)
         v = lambda*w;

@@ -30,7 +30,6 @@ RES = zeros(m,k,k);
 %lambda = [0    0.6000    0.3235;
 %     0.6000         0    0.0515;
 %     0.3235    0.0515         0];
-lambda = [1 1 1; 1 1 1; 1 1 1];
 
 for i=1:k
     for j=(i+1):k
@@ -41,7 +40,7 @@ for i=1:k
         yX   = TEMP(filt, :);
         y    = int32(yX(:,1:3));
         X    = yX(:,4:end);
-        RES(:,i,j) = XTEST * classif( X, (y(:,i)-y(:,j)), lambda(i,j));
+        RES(:,i,j) = classif( X, (y(:,i)-y(:,j)), XTEST i, j);
     end
 end
 
