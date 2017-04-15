@@ -12,10 +12,15 @@ class NNClassifier:
 
     def get_batch(self, n, i, x, y):
         batch_size = int(math.ceil((x.shape[0]+1)/n))
-        idx = np.random.randint(x.shape[0], size=batch_size)
 
-        batch_x = x[idx, :]
-        batch_y = y[idx, :]
+        # idx = np.random.randint(x.shape[0], size=batch_size)
+        # batch_x = x[idx, :]
+        # batch_y = y[idx, :]
+
+        start = i*batch_size
+        stop = min((i+1)*batch_size, x.shape[0])
+        batch_x = x[start:stop:1]
+        batch_y = y[start:stop:1]
         return batch_x, batch_y
 
     def fit(self, x_train, y_train, x_test):
